@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>searchname</title>
+</head>
+<body>
+    <p>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviename)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movieyear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviecategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movielanguage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movierating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movielead)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviedescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movieduration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviebudget)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moviename)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movieyear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moviecategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movielanguage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movierating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movielead)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moviedescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movieduration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moviebudget)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Index">Back to List</a>
+
+</body>
+</html>
+

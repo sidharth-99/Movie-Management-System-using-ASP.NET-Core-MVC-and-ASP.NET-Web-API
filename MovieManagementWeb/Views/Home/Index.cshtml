@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviename)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.moviename)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-movieid="@item.movieid">Edit</a> |
+                        <a asp-action="searchid" asp-route-movieid="@item.movieid">Details</a> |
+                        <a asp-action="Delete" asp-route-movieid="@item.movieid">Delete</a>
+                        <a asp-action="searchname" asp-route-moviename="@item.moviename">Invoke details with name procedure</a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</body>
+</html>
