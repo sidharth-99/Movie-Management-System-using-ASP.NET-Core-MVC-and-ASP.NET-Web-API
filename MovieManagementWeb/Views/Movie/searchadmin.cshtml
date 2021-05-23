@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>searchname</title>
+    <link href="@Url.Content("~/CSS/Admin.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bun">
+</head>
+<body>
+
+   
+    <div style="overflow-x:auto;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1><b>Movies</b></h1>
+        <br>
+        <table>
+            <tr>
+                <th>Movie Name</th>
+                <th>Actions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td> @Html.DisplayFor(modelItem => item.moviename)</td>
+    <td><a asp-controller="Movie" asp-action="Edit" asp-route-movieid="@item.movieid" class="button">Edit</a> <a asp-controller="Movie" asp-action="Details" asp-route-movieid="@item.movieid" class="button">Details</a> <a asp-controller="Movie" asp-action="Delete" asp-route-movieid="@item.movieid" class="button">Delete</a></td>
+</tr>            }
+        </table>
+    </div>
+
+</body>
+</html>

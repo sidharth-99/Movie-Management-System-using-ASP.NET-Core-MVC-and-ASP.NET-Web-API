@@ -1,0 +1,45 @@
+﻿@model MovieData.Models.Movieentity
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="~/Images/logo_transparent_shortcut.jpg">
+    <link rel="stylesheet" href="@Url.Content("~/css/something.css")">
+    <script type="text/javascript" src="~/js/slider.js"></script>
+    <title>Details</title>
+</head>
+<body>
+    <div class="img-comp-container">
+        <div class="img-comp-img">
+            <img src="@Model.ImageData" width="700" height="700">
+        </div>
+        <div class="img-comp-img img-comp-overlay">
+            <img class="blur" src="@Model.ImageData" width="700" height="700">
+            <div class="centered">
+                <h1><b>@Html.DisplayFor(model => model.moviename)</b><span> (@Html.DisplayFor(model => model.movieyear))</span></h1>
+                <p><b>Rating: </b><span>@Html.DisplayFor(model => model.movierating)</span>/10 </p>
+                <p><span><b>Language: </b> @Html.DisplayFor(model => model.movielanguage)</span></p>
+                <p><b>Run Time: </b> @Html.DisplayFor(model => model.movieduration)</p>
+                <p><span><b>Category: </b> @Html.DisplayFor(model => model.moviecategory1), @Html.DisplayFor(model => model.moviecategory2)</span></p>
+                <p><span><b>Budget: </b> @Html.DisplayFor(model => model.moviebudget)</span></p>
+                <p><b>Starring: </b> @Html.DisplayFor(model => model.movielead1), @Html.DisplayFor(model => model.movielead2)</p>
+                <p><b>Description: </b>  @Html.DisplayFor(model => model.moviedescription) </p>
+                <a href="@Model.videotrailer" target="_blank" class="button">Watch Trailer</a>
+                <hr />
+                <a asp-action="movielist" class="button">Go Back</a>
+                <a asp-action="Edit" asp-route-movieid="@Model.movieid" class="button"> EDIT</a>
+            </div>
+        </div>
+    </div>
+
+    <script>initComparisons();</script>
+</body>
+</html>

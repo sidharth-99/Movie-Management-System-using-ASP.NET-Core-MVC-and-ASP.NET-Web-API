@@ -1,0 +1,99 @@
+* {box-sizing: border-box;}
+
+body{
+  background: linear-gradient( rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7) ),url(../Images/home-background.jpg);
+}
+
+.img-comp-container {
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    position: relative;
+    height: 700px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+.blur
+{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.centered {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+.button {
+    background-color: #8A2BE2;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.button:hover {
+    opacity: 1
+}
+
+@media screen and (max-height: 450px) {
+  .img-comp-container {
+  width: 100%;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+}
+
+@media only screen and (max-width: 800px) {
+  
+  .img-comp-container {
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ 
+  
+}
+

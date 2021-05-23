@@ -1,0 +1,62 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Images/logo-cinematica.png">
+    <link rel="stylesheet" href="@Url.Content("~/css/Customer.css")">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <a class="logo" asp-action="Customer"><img src="/Images/logo_transparent.png" alt="logo" height="75" width="75"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a class="cta" asp-action="Customer"><i class="fa fa-home"></i> Home</a></li>
+                <li><a asp-action="search"><i class="fa fa-fw fa-search"></i> Search</a></li>
+                <li><a asp-action="CustomerAboutUs"><i class="fa fa-address-card"></i> About Us</a></li>
+                <li><a asp-action="Logout" asp-controller="account"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </nav>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div id="mobile__menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a asp-action="Customer"><i class="fa fa-home"></i> Home</a>
+            <a asp-action="search"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a asp-action="CustomerAboutUs"><i class="fa fa-address-card"></i> About Us</a>
+            <a asp-action="Logout" asp-controller="account"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1><strong><span>CINEMATICA</span></strong></h1>
+            <br>
+            <h2>Your movies, and TV shows take center stage.</h2>
+            <br>
+            <h3>
+                Cinematica is the best way to look for the movies, and
+                TV shows you want to enjoy.
+            </h3>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright &copy; 2021 Cinematica</p>
+    </div>
+
+    <script type="text/javascript" src="~/js/menu.js"></script>
+</body>
+</html>

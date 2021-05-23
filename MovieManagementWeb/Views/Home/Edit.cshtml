@@ -18,7 +18,9 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Edit">
+            <form asp-action="Edit" asp-controller="Home"
+                  method="post"
+                  enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="movieid" />
                 <div class="form-group">
@@ -32,9 +34,14 @@
                     <span asp-validation-for="movieyear" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="moviecategory" class="control-label"></label>
-                    <input asp-for="moviecategory" class="form-control" />
-                    <span asp-validation-for="moviecategory" class="text-danger"></span>
+                    <label asp-for="moviecategory1" class="control-label"></label>
+                    <input asp-for="moviecategory1" class="form-control" />
+                    <span asp-validation-for="moviecategory1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="moviecategory2" class="control-label"></label>
+                    <input asp-for="moviecategory2" class="form-control" />
+                    <span asp-validation-for="moviecategory2" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="movielanguage" class="control-label"></label>
@@ -47,9 +54,14 @@
                     <span asp-validation-for="movierating" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="movielead" class="control-label"></label>
-                    <input asp-for="movielead" class="form-control" />
-                    <span asp-validation-for="movielead" class="text-danger"></span>
+                    <label asp-for="movielead1" class="control-label"></label>
+                    <input asp-for="movielead1" class="form-control" />
+                    <span asp-validation-for="movielead1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="movielead2" class="control-label"></label>
+                    <input asp-for="movielead2" class="form-control" />
+                    <span asp-validation-for="movielead2" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="moviedescription" class="control-label"></label>
@@ -67,11 +79,38 @@
                     <span asp-validation-for="moviebudget" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+
+                    <p>
+                        VALUEEEE:                  <div>  <img src="@Model.ImageData" /> </div>
+                    </p>
+                    <p> Imagedata: @Model.ImageData</p>
+
+                    <p>@ViewBag.one</p>
+                    <label asp-for="ImageData" class="control-label">ImageData</label>
+                    <input asp-for="ImageData" type="file" id="file1"
+                           name="file1" class="form-control" />
+                    <span asp-validation-for="ImageData" class="text-danger"></span>
+
+
+
+                </div>
+                @*<div hidden class="form-group">
+                    <label asp-for="ImageData2" class="control-label"></label>
+                    <input asp-for="ImageData2" class="form-control" />
+                    <span asp-validation-for="ImageData2" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <label asp-for="videotrailer" class="control-label"></label>
+                    <input asp-for="videotrailer" class="form-control" />
+                    <span asp-validation-for="videotrailer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
+
 
     <div>
         <a asp-action="Index">Back to List</a>

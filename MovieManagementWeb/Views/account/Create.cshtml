@@ -1,0 +1,175 @@
+﻿@model ModelsLibrary.User
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Create</title>
+    </head>
+    <body>
+
+        <h4>User</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="name" class="control-label"></label>
+                        <input asp-for="name" class="form-control" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="email" class="control-label"></label>
+                        <input asp-for="email" class="form-control" />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="password" class="control-label"></label>
+                        <input asp-for="password" class="form-control" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="secques" class="control-label"></label>
+                        <input asp-for="secques" class="form-control" />
+                        <span asp-validation-for="secques" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="secans" class="control-label"></label>
+                        <input asp-for="secans" class="form-control" />
+                        <span asp-validation-for="secans" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignUp and Login</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script>
+        function validateform() {
+            var name = document.myform.name.value;
+            var password = document.myform.password.value;
+
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+            }
+        }
+    </script>
+
+    <div class="container" id="container">
+        
+        <div class="form-container sign-in-container">
+
+            <form name="myform" method="post" asp-action="Create" asp-controller="account" onsubmit="return validateform()">
+                <h1>Create Account</h1>
+                @*<div class="social-container">
+            <a  href="http://www.facebook.com/profile.php?id=" class="social"><i class="fa fa-facebook"></i></a>
+            <a href="http://google.com/+" class="social"><i class="fa fa-google"></i></a>
+            <a href="http://www.linkedin.com/in/" class="social"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <span>or use your email for registration</span>*@
+                <input type="text" asp-for="name" placeholder="Name" required>
+                <span asp-validation-for="name" class="text-danger"></span>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="password" asp-for="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <span asp-validation-for="password" class="text-danger"></span>
+                <label>Security Question</label>
+                <select name="secques">
+                    <option name="secques" value="First School">
+                        First School
+                    </option>
+                    <option name="secques" value="First Pet">
+                        First Pet
+                    </option>
+                    <option name="secques" value="Favourite Sport">
+                        Favourite Sport
+                    </option>
+                </select>
+                <input type="text" name="secans" placeholder="security_answer" required>
+                <button>SignUp</button>
+            </form>
+        </div>
+        @*<div class="form-container sign-in-container">
+            <form asp-action="Login" method="post">
+                <h1>Sign In</h1>
+                <div class="social-container">
+                    <a class="social" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                    <a class="social" href="http://google.com/+"><i class="fa fa-google"></i></a>
+                    <a class="social" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="text" name="username" placeholder="UserName" required>
+                <input type="password" name="password" placeholder="Password" required>
+                 <button onclick="myfunction();">Forgot Your Password</button><br> 
+
+                <button>Sign In</button>
+            </form>
+        </div>*@
+        <div class="overlay-container">
+            <div class="overlay">
+
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <!--<button class="ghost" id="signIn">Sign In</button>-->
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, User!</h1>
+                    <p>Enter your details and start journey with us</p>
+                    <!--<button asp-action="Create" asp-controller="account" class="ghost" id="signUp">Register </button>-->
+                    @*<input type="button"
+        value="Register"  id="signUp" class="ghost"
+        onclick="location.href='<%: Url.Action("Create", "account" ) %>'" />*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const container = document.getElementById('container');
+
+            signUpButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+            signInButton.addEventListener('click', () => {
+                container.classList.remove("right-panel-active");
+            });
+        </script>
+    <script>
+        function myfunction() {
+            var retVal = prompt("Enter security answer : ", "your name here");
+            document.write("You have entered : " + retVal);
+        }
+    </script>
+
+</body>
+</html>

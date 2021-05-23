@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../Images/movies.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.Create{
+    width: 320px;
+    height: 1300px;
+    background: rgba(0, 0, 0, 0.50);
+    color: #fff;
+    top: 55%;
+    left: 50%;
+    position:absolute;
+    transform: translate(-50%,-25%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.Create label{
+    margin: 0;
+    width: 200px;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Create input{
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.Create input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.Create input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.Create input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.Create a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.Create a:hover
+{
+    color: #ffc107;
+}
+#ImageData {
+    display: none;
+  }
+  #icon{
+    width: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+#back{
+
+    
+    size: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

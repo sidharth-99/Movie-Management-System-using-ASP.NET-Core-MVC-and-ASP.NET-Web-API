@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="@Url.Content("~/CSS/searchbar.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <script>
+        function func() {
+            value = Document.GetElementById("t1");
+            return value;
+        }
+        function numericFilter(txb) {
+            txb.value = txb.value.replace(/[^\0-9][.][^\0-9]/ig, "");
+        }
+
+    </script>
+
+
+</head>
+<body>
+    @*<form method="post" asp-controller="Home" asp-action="searchrating">
+
+            <input type="text" name="movierating" size="40" height="25" />
+
+            <button type="submit" title="Search Rating" class="searchrating" target="myFrame">Search Rating</button>
+
+
+        </form>*@
+
+    <form asp-controller="Movie" asp-action="searchrating">
+
+        <div class="wrap">
+            <div class="search">
+
+                <input type="number" step="0.1" max="10" min="0" class="searchTerm" name="movierating" aria-label="search" placeholder="Enter the Rating" onKeyUp="numericFilter(this);"/>
+
+                <button type="submit" @*title="Search Name"*@ class="searchButton" target="myFrame">
+                    <i class="fa fa-search"></i>
+                </button>
+
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿@model MovieData.Models.Movieentity
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="@Url.Content("~/Css/add.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+
+    <style>
+        #back {
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="Create">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Createmovie" asp-controller="Movie"
+                      method="post"
+                      enctype="multipart/form-data" name="myform">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="moviename" class="control-label">Movie Name</label>
+                        <input asp-for="moviename" class="form-control" placeholder="Enter Name" pattern="[A-Za-z].{1,}" title="Only Characters" required />
+                        <span asp-validation-for="moviename" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movieyear" class="control-label">Movie Year</label>
+                        <input name="year" asp-for="movieyear" class="form-control" placeholder="Enter Year" id="yearOutput" min="1920" max="2021" title="range between 1920 and 2021" required />  @*oninput="yearValidation()"*@
+                        <span asp-validation-for="movieyear" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="moviecategory1" class="control-label">Movie Category1</label>
+                        <input asp-for="moviecategory1" class="form-control" placeholder="Enter Category 1" pattern="[A-Za-z].{1,}" title="Characters Only" required />
+                        <span asp-validation-for="moviecategory1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="moviecategory2" class="control-label">Movie Category 2</label>
+                        <input asp-for="moviecategory2" class="form-control" placeholder="Enter Category 2" pattern="[A-Za-z].{1,}" title="Characters Only" required />
+                        <span asp-validation-for="moviecategory2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movielanguage" class="control-label">Movie Language</label>
+                        <input asp-for="movielanguage" class="form-control" placeholder="Enter Language" pattern="[A-Za-z].{1,}" title="Characters Only" required />
+                        <span asp-validation-for="movielanguage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movierating" class="control-label">Movie Rating</label>
+                        <input type="number" asp-for="movierating" class="form-control" placeholder="Enter Rating" pattern="[0-9]([\.][0-9]+)?" step="0.01" title="Numbers between 0-10 Only" min="0" max="10" required />
+                        
+                        <span asp-validation-for="movierating" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movielead1" class="control-label">Movie Lead 1</label>
+                        <input asp-for="movielead1" class="form-control" placeholder="Enter Lead Actor 1" pattern="[A-Za-z].{1,}" title="Characters Only" required />
+                        <span asp-validation-for="movielead1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movielead2" class="control-label">Movie Lead 2</label>
+                        <input asp-for="movielead2" class="form-control" placeholder="Enter Lead Actor 2" pattern="[A-Za-z].{1,}" title="Characters Only" required />
+                        <span asp-validation-for="movielead2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="moviedescription" class="control-label">Movie Description</label>
+                        <input asp-for="moviedescription" class="form-control" placeholder="Enter Description" pattern="[A-Za-z].{1,}" title="Characters Only" maxlength=200 required />
+                        <span asp-validation-for="moviedescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="movieduration" class="control-label">Movie Duration</label>
+                        <input asp-for="movieduration" class="form-control" placeholder="Enter Duration"  required/>
+                        <span asp-validation-for="movieduration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="moviebudget" class="control-label">Movie Budget</label>
+                        <input asp-for="moviebudget" class="form-control" placeholder="Enter Budget"  required/>
+                        <span asp-validation-for="moviebudget" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="videotrailer" class="control-label">Video Trailer</label>
+                        <input asp-for="videotrailer" class="form-control" placeholder="Enter Video Link" pattern="https://www.youtube.com/.+" title="enter valid youtube url" required />
+                        <span asp-validation-for="videotrailer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageData" class="control-label">Image Data</label>
+                        <label asp-for="ImageData" class="control-label">
+                            <img id="icon" src="~/Images/Upload.png">
+                        </label>
+                        <input asp-for="ImageData" type="file" id="ImageData"
+                               name="file1" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Add Movie" class="btn btn-primary" />
+                        <a id="back" asp-action="movielist">Go back</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+</body>
+</html>
+

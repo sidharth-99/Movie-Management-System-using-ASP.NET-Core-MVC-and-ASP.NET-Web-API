@@ -1,0 +1,33 @@
+iframe[name="myFrame"] {
+    background: black;
+    font-family: 'Open Sans', sans-serif;
+    background-size: 100% 100%;
+}
+
+.card-horizontal {
+    background: rgba(255, 252, 252, 0.801);
+    color: black;
+    display: flex;
+/*    flex: 1 1 auto;
+*/    flex-wrap:nowrap;
+    width:600px;
+    height:400px;
+}
+
+.card{
+    width:600px;
+    height: 400px;
+}
+
+
+.img-square-wrapper {
+    height: 600px;
+    width: 400px;
+    margin-bottom: 75px;
+}
+
+.card-image {
+    width: 90vw;
+    height: 90vh;
+    margin-bottom: 10px;
+}

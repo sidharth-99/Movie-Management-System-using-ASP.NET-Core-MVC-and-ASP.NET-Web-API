@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="~/Images/logo_transparent_shortcut.jpg">
+    <link href="/CSS/searchpage.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/iframe.js"></script>
+    <style>
+
+        iframe {
+            background: url(../Images/rec.jpg);
+            font-family: 'Josefin Sans', sans-serif;
+            background-size: 100% 580px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="logo" asp-action="movielist"><img src="~/Images/logo_transparent.png" alt="logo" height="75" width="75"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a asp-action="movielist"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="add.html"><i class="fa fa-fw fa-plus-square"></i> Add Movie</a></li>
+                <li class="dropdown">
+                    <a asp-action="Adminsearch" class="cta" class="dropbtn"><i class="fa fa-search"></i> Search</a>
+                    <div class="dropdown-content">
+                        <a href="#">By Name</a>
+                        <a href="#">By Lead</a>
+                        <a href="#">By Category</a>
+                        <a href="#">By Language</a>
+                        <a href="#">By Year</a>
+                        <a href="#">By Rating</a>
+                    </div>
+                </li>
+                <li><a asp-action="StartPage"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </nav>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div id="mobile__menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a asp-action="movielist"><i class="fa fa-home"></i> Home</a>
+            <a href="add.html"><i class="fa fa-fw fa-plus-square"></i> Add Movie</a>
+            <li class="dropdown">
+                <a asp-action="Adminsearch" class="dropbtn"><i class="fa fa-search"></i> Search</a>
+                <div class="dropdown-content">
+                    <a asp-action="searchfname" target="myFrame">Name</a>
+                    <a asp-action="searchflead" target="myFrame">Lead</a>
+                    <a asp-action="searchfcategory" target="myFrame">Category</a>
+                    <a asp-action="searchflanguage" target="myFrame">Language</a>
+                    <a asp-action="searchfyear" target="myFrame">Year</a>
+                    <a asp-action="searchfrating" target="myFrame">Rating</a>
+                </div>
+            </li>
+            <a asp-action="StartPage"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+    </div>
+
+    <iframe class="iframe" width="100%" height="600" frameborder="0" name="myFrame">
+    </iframe>
+
+    <script type="text/javascript" src="~/js/menu.js"></script>
+</body>
+</html>

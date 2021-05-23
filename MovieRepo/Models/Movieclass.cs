@@ -36,12 +36,12 @@ namespace MovieRepo.Models
 
         public IEnumerable<Movieentity> moviebycategory(string moviecategory)
         {
-            throw new NotImplementedException();
+            return db.movieentities.FromSqlRaw<Movieentity>("search_category {0}", moviecategory).ToList();
         }
 
-        public IEnumerable<Movieentity> moviebyid(int movieid)
+        public Movieentity moviebyid(int movieid)
         {
-            return db.movieentities.FromSqlRaw<Movieentity>("getmbyid {0}", movieid).ToList();
+            return db.movieentities.Find(movieid);
         }
 
         public IEnumerable<Movieentity> moviebylanguage(string movielanguage)
@@ -64,9 +64,9 @@ namespace MovieRepo.Models
             return db.movieentities.FromSqlRaw<Movieentity>("search_rating {0}", movierating).ToList();
         }
 
-        public IEnumerable<Movieentity> moviebyyear(int movieyear)
+        public IEnumerable<Movieentity> moviebyyear(int movieyear1, int movieyear2)
         {
-            return db.movieentities.FromSqlRaw<Movieentity>("search_year {0}", movieyear).ToList();
+            return db.movieentities.FromSqlRaw<Movieentity>("search_year {0}, {1}", movieyear1, movieyear2).ToList();
         }
 
         public void updatemovie(Movieentity m)

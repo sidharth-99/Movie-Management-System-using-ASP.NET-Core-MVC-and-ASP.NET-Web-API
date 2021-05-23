@@ -1,0 +1,172 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>searchname</title>
+    <link href="@Url.Content("~/searchhome.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <style>
+        .img-square-wrapper {
+            margin-top: 15px;
+            height: 400px;
+            margin-left: 15px;
+            width: 266px;
+            margin-bottom: 15px;
+        }
+
+        .card-image {
+            width: 90vw;
+            height: 90vh;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            max-height: inherit;
+        }
+    </style>
+</head>
+<body>
+    @*<p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.moviename)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movieyear)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.moviecategory1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.moviecategory2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movielanguage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movierating)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movielead1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movielead2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.moviedescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.movieduration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.moviebudget)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.videotrailer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImageData)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.moviename)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movieyear)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.moviecategory1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.moviecategory2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movielanguage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movierating)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movielead1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movielead2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.moviedescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.movieduration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.moviebudget)
+                        </td>
+                        <td>
+                            <iframe width="420" height="345" src=@item.videotrailer>
+                            </iframe>
+                        </td>
+                        <td>
+                            <img src="@item.ImageData" />
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.movieid">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.movieid">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.movieid">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
+
+    @if (!Model.Any())
+    {
+        <center><h1> NO MOVIES MATCH YOUR REQUEST </h1></center>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card">
+                            <div class="card-horizontal">
+
+                                <div class="img-square-wrapper">
+
+                                    <a asp-controller="Movie" asp-action="DetailsCustomer" asp-route-movieid="@item.movieid"><img class="card-img" src="@item.ImageData" alt="Card image cap"></a>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"> @Html.DisplayFor(modelItem => item.moviename)</h4>
+                                    <p class="card-text"> @Html.DisplayFor(modelItem => item.movielanguage)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</body>
+</html>

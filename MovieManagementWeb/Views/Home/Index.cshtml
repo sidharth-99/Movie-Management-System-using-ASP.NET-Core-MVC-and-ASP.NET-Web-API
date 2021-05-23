@@ -11,6 +11,12 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <script>
+        function func() {
+            value = Document.GetElementById("t1");
+            return value;
+        }
+    </script>
 </head>
 <body>
     <p>
@@ -37,7 +43,7 @@
                         <a asp-action="Edit" asp-route-movieid="@item.movieid">Edit</a> |
                         <a asp-action="searchid" asp-route-movieid="@item.movieid">Details</a> |
                         <a asp-action="Delete" asp-route-movieid="@item.movieid">Delete</a>
-                        <a asp-action="searchname" asp-route-moviename="@item.moviename">Invoke details with name procedure</a>
+
 
 
                     </td>
@@ -46,6 +52,55 @@
         </tbody>
     </table>
 
+    <form method="post" asp-controller="Home" asp-action="searchname">
 
+        <input type="text" name="moviename" size="40" height="25" />
+
+        <button type="submit" title="Search Name" class="searchname">Search Name</button>
+
+
+    </form>
+    <form method="post" asp-controller="Home" asp-action="searchcategory">
+
+        <input type="text" name="moviecategory" size="40" height="25" />
+
+        <button type="submit" title="Search Category" class="searchcategory">Search Category</button>
+
+
+    </form>
+    <form method="post" asp-controller="Home" asp-action="searchyear">
+
+        <input type="text" name="movieyear1" size="40" height="25" />
+        <input type="text" name="movieyear2" size="40" height="25"  />
+        <!-- put value="2021"-->
+        <button type="submit" title="Search Name" class="searchyear">Search Year</button>
+
+
+    </form>
+    <form method="post" asp-controller="Home" asp-action="searchlead">
+
+        <input type="text" name="movielead" size="40" height="25" />
+
+        <button type="submit" title="Search Name" class="searchlead">Search Lead</button>
+
+
+    </form>
+    <form method="post" asp-controller="Home" asp-action="searchlanguage">
+
+        <input type="text" name="movielanguage" size="40" height="25" />
+
+        <button type="submit" title="Search Name" class="searchlanguage">Search Language</button>
+
+
+    </form>
+    <form method="post" asp-controller="Home" asp-action="searchrating">
+
+        <input type="text" name="movierating" size="40" height="25" />
+
+        <button type="submit" title="Search Name" class="searchrating">Search Rating</button>
+
+
+    </form>
+    
 </body>
 </html>

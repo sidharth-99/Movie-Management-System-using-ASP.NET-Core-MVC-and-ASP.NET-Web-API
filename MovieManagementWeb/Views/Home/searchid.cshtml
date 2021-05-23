@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieData.Models.Movieentity>
+﻿@model MovieData.Models.Movieentity
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -26,7 +26,10 @@
                     @Html.DisplayNameFor(model => model.movieyear)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.moviecategory)
+                    @Html.DisplayNameFor(model => model.moviecategory1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.moviecategory2)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.movielanguage)
@@ -35,7 +38,10 @@
                     @Html.DisplayNameFor(model => model.movierating)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.movielead)
+                    @Html.DisplayNameFor(model => model.movielead1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.movielead2)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.moviedescription)
@@ -46,50 +52,68 @@
                 <th>
                     @Html.DisplayNameFor(model => model.moviebudget)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.videotrailer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageData)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.moviename)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.movieyear)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.moviecategory)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.movielanguage)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.movierating)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.movielead)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.moviedescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.movieduration)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.moviebudget)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-movieid="@item.movieid">Edit</a> |
-                        <a asp-action="searchyear" asp-route-movieyear="@item.movieyear">More in this year </a> |
-                        <a asp-action="searchlanguage" asp-route-movielanguage="@item.movielanguage">More in this language</a> |
-                        <a asp-action="searchcategory" asp-route-moviecategry="@item.moviecategory">More in this category</a> |
-                        <a asp-action="searchrating" asp-route-movierating="@item.movierating">More in this rating or above</a> |
-                        <a asp-action="searchlead" asp-route-movielead="@item.movielead">More with this lead actor</a>
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.moviename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movieyear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.moviecategory1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.moviecategory2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movielanguage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movierating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movielead1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movielead2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.moviedescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.movieduration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.moviebudget)
+                </td>
+                <td>
 
-                    </td>
-                </tr>
+                    <iframe width="420" height="345" src=@Model.videotrailer>
+                    </iframe>
+
+                </td>
+                <td>
+                    <div>
+                        <img src="@Model.ImageData" />
+                        @*<img src="/Images/Screenshot 2021-03-31 120350.png" />*@
+                    </div>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-movieid="@Model.movieid">Edit</a> |
+
+                </td>
+            </tr>
             }
         </tbody>
     </table>

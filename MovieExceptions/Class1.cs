@@ -4,5 +4,6 @@ namespace MovieExceptions
 {
     public class Class1
     {
+
     }
 }

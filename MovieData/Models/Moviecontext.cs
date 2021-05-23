@@ -13,8 +13,8 @@ namespace MovieData.Models
 
         }
         public DbSet<Movieentity> movieentities { get; set; }
-        public DbSet<Adminentity> adminentites { get; set; }
-        public DbSet<Customerentity> customerentities { get; set; }
+      
+        
 
 
 

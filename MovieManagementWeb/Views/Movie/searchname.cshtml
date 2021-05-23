@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>searchname</title>
+    <link href="@Url.Content("~/CSS/searchhome.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bun">
+    <style>
+        .img-square-wrapper {
+            margin-top: 15px;
+            height: 400px;
+            margin-left: 15px;
+            width: 266px;
+            margin-bottom: 15px;
+        }
+
+        .card-image {
+            width: 90vw;
+            height: 90vh;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            max-height: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+   
+    @if (!Model.Any())
+    {
+        <center><h1> NO MOVIES MATCH YOUR REQUEST </h1></center>
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        
+                        <div class="card">
+                            <div class="card-horizontal">
+
+                                <div class="img-square-wrapper">
+
+                                    <a asp-controller="Movie" asp-action="DetailsCustomer" asp-route-movieid="@item.movieid"><img class="card-img" src="@item.ImageData" alt="Card image cap"></a>
+                                </div>
+                                <div class="card-body">
+                                    <h2 class="card-title"> @Html.DisplayFor(modelItem => item.moviename)</h2>
+                                    <p class="card-text"> @Html.DisplayFor(modelItem => item.moviedescription)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</body>
+</html>

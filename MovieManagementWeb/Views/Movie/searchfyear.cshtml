@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MovieData.Models.Movieentity>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="@Url.Content("~/CSS/searchbar.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <script>
+        function func() {
+            value = Document.GetElementById("t1");
+            return value;
+        }
+        function numericFilter(txb) {
+            txb.value = txb.value.replace(/[^\0-9]/ig, "");
+        }
+    </script>
+
+</head>
+<body>
+  
+    <form asp-controller="Home" asp-action="searchyear">
+
+        <div class="wrap">
+            <div class="search">
+
+                <input type="text" name="movieyear1" class="searchTerm" aria-label="search" placeholder="Enter the Year" onKeyUp="numericFilter(this);"/>
+                <input type="text" name="movieyear2" class="searchTerm2" value="2021" aria-label="search" placeholder="Enter the Year" onKeyUp="numericFilter(this);"/>
+
+                <button type="submit" @*title="Search Name"*@ class="searchButton" target="myFrame" >
+                    <i class="fa fa-search"></i>
+                </button>
+
+            </div>
+        </div>
+    </form>
+    <hr>
+
+</body>
+</html>

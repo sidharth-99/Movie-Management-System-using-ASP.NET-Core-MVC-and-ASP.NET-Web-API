@@ -1,0 +1,122 @@
+﻿@model ModelsLibrary.Login
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Login";
+}
+
+@*<h1>Login</h1>
+
+    <h4>loginm</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AdminLogin" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="username" class="control-label"></label>
+                    <input asp-for="username" class="form-control" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignUp and Login</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script>
+        function validateform() {
+            var name = document.myform.name.value;
+            var password = document.myform.password.value;
+
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+            }
+        }
+    </script>
+
+    <div class="container" id="container">
+        
+        <div class="form-container sign-in-container">
+            <form asp-action="AdminLogin" method="post">
+                <h1>Sign In</h1>
+              
+
+                <div class="form-group">
+                    <input asp-for="username" class="form-control" placeholder="Username" required/>
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="password" type="password" class="form-control" placeholder="Password" required/>
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Admin!</h1>
+                    <p>Enter your details and start journey with us</p>
+                    <!--<button class="ghost" id="signUp">Sign Up</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        /*signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });*/
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+    <script>
+        function myfunction() {
+            var retVal = prompt("Enter security answer : ", "your name here");
+            document.write("You have entered : " + retVal);
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
